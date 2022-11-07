@@ -4,7 +4,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 rl.on('close', function () {
-  console.log('\nThank You for shopping at Seam Store!!!');
+  console.log('\nThank you for shopping at Seam Store!!!');
 })
 //Display name of store and welcome message
 let storeName = "Seam Store";
@@ -34,13 +34,13 @@ const checkout = () => {
   for (let i = 0; i < customerCart.length; i++) {
     totalPrice += customerCart[i].price
   }
-  const recipt = `\nHi, the total price for your items is $${totalPrice}, Below are your items. `
-  console.log(recipt);
+  const receipt = `\nHi, your bill is $${totalPrice}, below is your invoice: `
+  console.log(receipt);
   console.log(customerCart);
   rl.close()
 }
 const startFromBeginning = () => {
-  rl.question('Name of product you want to buy? ', function (customerChoice) {
+  rl.question('What product do you want to buy? ', function (customerChoice) {
     // clean up the customer's input
     const product = customerChoice.toLowerCase().trim()
     // Initiate a default message as Not Available
@@ -53,7 +53,7 @@ const startFromBeginning = () => {
       message = 'Available'
       console.log(message);
       // Ask them if they want to add it to cart
-      rl.question('Do you want to add this item to cart? (y|yes/n|no) ', function (customerChoice) {
+      rl.question('Do you want to add this item to your cart? (y|yes/n|no) ', function (customerChoice) {
         const answer = customerChoice.toLowerCase().trim()
         // Handle the customer's choice
         if (answer === 'yes' || answer === 'y') {
